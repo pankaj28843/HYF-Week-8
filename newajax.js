@@ -30,9 +30,6 @@
 // });
 
 
-
-
-
 function fetchJSONDataNew(url) {
     const promise = new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();
@@ -57,34 +54,12 @@ const moviesURL = 'https://gist.githubusercontent.com/pankaj28843/08f397fcea7c76
 
 fetchJSONDataNew(moviesURL).then(movies => {
     console.log(movies);
-    return fetchJSONDataNew(moviesURL);
-}).then(movies => {
-    console.log(movies);
-    return fetchJSONDataNew(moviesURL);
-}).then(movies => {
-    console.log(movies);
-    const promise =  new Promise((resolve, reject) => {
-        setTimeout(()=> {
-            reject("Stop sending so many requests at once!");
-        }, 1000);
-    })
-    return promise;
-    // return fetchJSONDataNew(moviesURL);
-}).then(movies => {
-    console.log(movies);
-    return fetchJSONDataNew(moviesURL);
-}).then(movies => {
-    console.log(movies);
-    return fetchJSONDataNew(moviesURL);
-}).then(movies => {
-    console.log(movies);
-    return fetchJSONDataNew(moviesURL);
-}).then(movies => {
-    console.log(movies);
-    return fetchJSONDataNew(moviesURL);
-}).then(movies => {
-    console.log(movies);
-    return fetchJSONDataNew(moviesURL);
+
+    // Step 1: Get all movies from 2000s - relase year >= 2000, <= 2009
+    // Step 2: Find movies with votes more than 1,000,000
+    // Step 3: Console log title, relase year, votes, and rating for each film
 }).catch(error => {
     console.log("Error occured:", error);
 });
+
+
