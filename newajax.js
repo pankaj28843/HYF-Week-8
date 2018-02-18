@@ -57,6 +57,14 @@ function printMovie(movie) {
 
 }
 
+
+function caseInsensitivesearch(query) {
+    query = query.toLocaleLowerCase().trim();
+
+    return movie => movie.title.toLocaleLowerCase().includes(query);
+}
+
+
 fetchJSONDataNew(moviesURL).then(movies => {
     console.log(movies);
 
@@ -90,6 +98,8 @@ fetchJSONDataNew(moviesURL).then(movies => {
     console.log('\n\n\n>>>>> Top Rated');
 
     topRatedMoviesFrom2000s.forEach(printMovie);
+
+    console.log(movies.filter(caseInsensitivesearch('Great')));
 
 
 }).catch(error => {
